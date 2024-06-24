@@ -10,7 +10,9 @@ export default function ProjectCoordinatorRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get('/api/v1/auth/projectcoordinator-auth');
+      const res = await axios.get(
+        'https://student-modman.onrender.com/api/v1/auth/projectcoordinator-auth'
+      );
       if (res.data.ok) {
         setOk(true);
       } else {

@@ -36,20 +36,23 @@ const CreateProjectGroup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/v1/group/register', {
-        userName,
-        regNo,
-        contactNo,
-        email,
-        groupType,
-        specialization,
-        projectLeaderName,
-        projectLeaderRegNo,
-        projectTitle,
-        researchArea,
-        researchGroup,
-        supervisorName,
-      });
+      const res = await axios.post(
+        'https://student-modman.onrender.com/api/v1/group/register',
+        {
+          userName,
+          regNo,
+          contactNo,
+          email,
+          groupType,
+          specialization,
+          projectLeaderName,
+          projectLeaderRegNo,
+          projectTitle,
+          researchArea,
+          researchGroup,
+          supervisorName,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data.message);
         localStorage.setItem('special', specialization);
@@ -67,7 +70,9 @@ const CreateProjectGroup = () => {
   //getall users
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get('/api/v1/auth/users');
+      const { data } = await axios.get(
+        'https://student-modman.onrender.com/api/v1/auth/users'
+      );
       setUsers(data);
       console.log(data);
     } catch (error) {

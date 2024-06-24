@@ -29,16 +29,19 @@ const CreateNewUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/v1/auth/register', {
-        userID,
-        fullName,
-        email,
-        nicNo,
-        mobileNo,
-        password,
-        answer,
-        role,
-      });
+      const res = await axios.post(
+        'https://student-modman.onrender.com/api/v1/auth/register',
+        {
+          userID,
+          fullName,
+          email,
+          nicNo,
+          mobileNo,
+          password,
+          answer,
+          role,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data.message);
         // navigate('/dashboard/projectCoordinator/all-project-coordinators');

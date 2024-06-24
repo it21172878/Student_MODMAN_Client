@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MdEmail } from 'react-icons/md';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button';
@@ -26,7 +26,10 @@ const OTPform = () => {
         email: email,
       };
 
-      const response = await axios.post('/api/v1/otpemail/sendEmail', data);
+      const response = await axios.post(
+        'https://student-modman.onrender.com/api/v1/otpemail/sendEmail',
+        data
+      );
       console.log(response);
 
       if (response.status === 200) {

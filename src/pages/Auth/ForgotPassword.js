@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from './../../components/Layout/Layout';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
@@ -18,11 +18,14 @@ const ForgotPasssword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/v1/auth/forgot-password', {
-        email,
-        newPassword,
-        answer,
-      });
+      const res = await axios.post(
+        'https://student-modman.onrender.com/api/v1/auth/forgot-password',
+        {
+          email,
+          newPassword,
+          answer,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data.message);
 

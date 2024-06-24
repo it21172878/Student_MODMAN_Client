@@ -10,7 +10,9 @@ const Examiners = () => {
 
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get('/api/v1/auth/users');
+      const { data } = await axios.get(
+        'https://student-modman.onrender.com/api/v1/auth/users'
+      );
       setUsers(data);
       console.log(data);
     } catch (error) {

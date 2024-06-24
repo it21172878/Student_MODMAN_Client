@@ -47,7 +47,10 @@ const MyAssignment = () => {
       };
       console.log(data);
 
-      const response = await axios.post('/api/v1/otpemail/verifyEmail', data);
+      const response = await axios.post(
+        'https://student-modman.onrender.com/api/v1/otpemail/verifyEmail',
+        data
+      );
       if (response.status === 200) {
         // localStorage.setItem('userdbtoken', response.data.userToken);
         toast.success(response.data.message);
@@ -79,7 +82,10 @@ const MyAssignment = () => {
         email: email,
       };
 
-      const response = await axios.post('/api/v1/otpemail/sendEmail', data);
+      const response = await axios.post(
+        'https://student-modman.onrender.com/api/v1/otpemail/sendEmail',
+        data
+      );
       console.log(response);
 
       if (response.status === 200) {
@@ -101,7 +107,10 @@ const MyAssignment = () => {
     try {
       const formData = new FormData();
       formData.append('file', fileInputRef.current.files[0]);
-      const res = await axios.post('/api/v1/assignment/submit', formData);
+      const res = await axios.post(
+        'https://student-modman.onrender.com/api/v1/assignment/submit',
+        formData
+      );
       console.log(res);
       toast.success(res.data.message);
     } catch (error) {
@@ -114,7 +123,9 @@ const MyAssignment = () => {
     setLoading(true);
     try {
       // const res = await axios.get('http://localhost:8585/api/v1/items');
-      const res = await axios.get('/api/v1/assignment');
+      const res = await axios.get(
+        'https://student-modman.onrender.com/api/v1/assignment'
+      );
       setItems(res.data.items);
       setLoading(false);
       console.log(res.data.items);
@@ -127,7 +138,7 @@ const MyAssignment = () => {
     try {
       const res = await axios.get(
         // `http://localhost:8585/api/v1/items/download/${id}`,
-        `/api/v1/assignment/download/${id}`,
+        `https://student-modman.onrender.com/api/v1/assignment/download/${id}`,
         { responseType: 'blob' }
       );
       const blob = new Blob([res.data], { type: res.data.type });

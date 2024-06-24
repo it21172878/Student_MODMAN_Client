@@ -30,7 +30,10 @@ const OTPverifyForm = () => {
       };
       console.log(data);
 
-      const response = await axios.post('/api/v1/otpemail/verifyEmail', data);
+      const response = await axios.post(
+        'https://student-modman.onrender.com/api/v1/otpemail/verifyEmail',
+        data
+      );
       if (response.status === 200) {
         // localStorage.setItem('userdbtoken', response.data.userToken);
         toast.success(response.data.message);

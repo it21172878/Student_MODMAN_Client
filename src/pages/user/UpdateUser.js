@@ -43,15 +43,18 @@ const UpdateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put('/api/v1/auth/profile', {
-        userID,
-        fullName,
-        email,
-        nicNo,
-        mobileNo,
-        password,
-        answer,
-      });
+      const { data } = await axios.put(
+        'https://student-modman.onrender.com/api/v1/auth/profile',
+        {
+          userID,
+          fullName,
+          email,
+          nicNo,
+          mobileNo,
+          password,
+          answer,
+        }
+      );
       if (data?.error) {
         toast.error(data?.error);
       } else {

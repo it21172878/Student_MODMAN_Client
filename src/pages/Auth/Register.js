@@ -86,15 +86,18 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/v1/auth/register', {
-        userID,
-        fullName,
-        email: otpEmailAdd,
-        nicNo,
-        mobileNo,
-        password,
-        answer,
-      });
+      const res = await axios.post(
+        'https://student-modman.onrender.com/api/v1/auth/register',
+        {
+          userID,
+          fullName,
+          email: otpEmailAdd,
+          nicNo,
+          mobileNo,
+          password,
+          answer,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data.message);
         navigate('/login');

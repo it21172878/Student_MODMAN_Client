@@ -26,7 +26,9 @@ const MyGroupDetails = () => {
   //getall groups
   const getAllGroups = async () => {
     try {
-      const { data } = await axios.get('/api/v1/group/get-all-groups');
+      const { data } = await axios.get(
+        'https://student-modman.onrender.com/api/v1/group/get-all-groups'
+      );
       setGroups(data);
       console.log(data);
     } catch (error) {
